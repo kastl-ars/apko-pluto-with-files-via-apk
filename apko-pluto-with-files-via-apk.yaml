@@ -3,11 +3,14 @@
 contents:
   repositories:
     - https://packages.wolfi.dev/os
+    - '@local ./packages/'
   keyring:
     - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    - melange.rsa.pub
   packages:
     - busybox
     - pluto
+    - hello-world@local
 
 work-dir: /
 
