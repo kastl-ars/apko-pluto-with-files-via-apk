@@ -1,0 +1,41 @@
+---
+
+name: Create and publish a container image
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Defines two custom environment variables for the workflow. These are used for
+# the Container registry domain, and a name for the Docker image that this
+# workflow builds.
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+# There is a single job in this workflow. It's configured to run on the latest
+# available version of Ubuntu.
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in
+    # this job.
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - id: apko-pluto-with-files-via-apk
+        uses: chainguard-images/actions@ce715ff156f55cfbd242bb358b5151a9bc50332a # v1.0.35
+        with:
+          # Config is the configuration file to use for the image build.
+          # Optional, will use .apko.yaml without a defined one.
+          config: apko-pluto-with-files-via-apk.yaml
+          # Tag is the tag that will be published.
+          # Required.
+          tag: ghcr.io/kastl-ars/apko-pluto-with-files-via-apk:latest
