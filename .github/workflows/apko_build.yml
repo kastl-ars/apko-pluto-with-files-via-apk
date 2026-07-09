@@ -30,6 +30,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
+      - name: Create melange.rsa from Github secret
+        shell: bash
+        env:
+          MELANGE_KEY: ${{ secrets.MELANGE_KEY }}
+        run: echo "${MELANGE_KEY}" > melange.rsa
+
+      - name: Setup melange
+        uses: chainguard-dev/actions/setup-melange@f0be69916b439d0fcced2451b23d0f27cd46d545 # v1.6.26
+
+      - name: Build package with Melange
+        uses: chainguard-dev/actions/melange-build-pkg@f0be69916b439d0fcced2451b23d0f27cd46d545 # v1.6.26
+        with:
+          config: apkrane-package.yml
+          archs: x86_64
+          sign-with-key: true
+
       - id: apko-pluto-with-files-via-apk
         uses: chainguard-images/actions/apko-publish@ce715ff156f55cfbd242bb358b5151a9bc50332a # v1.0.35
         with:
