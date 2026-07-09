@@ -42,7 +42,7 @@ jobs:
       - name: Build package with Melange
         uses: chainguard-dev/actions/melange-build-pkg@f0be69916b439d0fcced2451b23d0f27cd46d545 # v1.6.26
         with:
-          config: apkrane-package.yml
+          config: hello-world-package.yml
           archs: x86_64
           sign-with-key: true
 
