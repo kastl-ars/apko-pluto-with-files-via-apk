@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - id: apko-pluto-with-files-via-apk
-        uses: chainguard-images/actions@ce715ff156f55cfbd242bb358b5151a9bc50332a # v1.0.35
+        uses: chainguard-images/actions/apko-publish@ce715ff156f55cfbd242bb358b5151a9bc50332a # v1.0.35
         with:
           # Config is the configuration file to use for the image build.
           # Optional, will use .apko.yaml without a defined one.
