@@ -33,7 +33,6 @@ accounts:
 
 archs:
   - amd64
-  - arm64
 
 annotations:
   org.opencontainers.image.source: "https://github.com/kastl-ars/apko-pluto-with-files-via-apk"
