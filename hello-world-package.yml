@@ -26,4 +26,4 @@ pipeline:
       uri: https://raw.githubusercontent.com/kastl-ars/apko-pluto-with-files-via-apk/refs/heads/main/files/hello-world.tar.gz
       expected-sha256: dfd15f6cf344fe0db3b9a8b50266ea222f997cb8ffaa58e39f309d7c531088cc
       extract: true
-      directory: /usr/bin/
+      directory: /etc/
