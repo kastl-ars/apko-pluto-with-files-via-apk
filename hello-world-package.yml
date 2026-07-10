@@ -24,5 +24,3 @@ pipeline:
       expected-sha256: 03ba204e50d126e4674c005e04d82e84c21366780af1f43bd54a37816b6ab340
       extract: false
       directory: /etc/
-
-  - uses: split
