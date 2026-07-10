@@ -20,7 +20,10 @@ pipeline:
 
   - uses: fetch
     with:
-      uri: https://raw.githubusercontent.com/kastl-ars/apko-pluto-with-files-via-apk/refs/heads/main/files/hello-world.txt
-      expected-sha256: 03ba204e50d126e4674c005e04d82e84c21366780af1f43bd54a37816b6ab340
-      extract: false
+      # uri: https://raw.githubusercontent.com/kastl-ars/apko-pluto-with-files-via-apk/refs/heads/main/files/hello-world.txt
+      # expected-sha256: 03ba204e50d126e4674c005e04d82e84c21366780af1f43bd54a37816b6ab340
+      # extract: false
+      uri: https://raw.githubusercontent.com/kastl-ars/apko-pluto-with-files-via-apk/refs/heads/main/files/hello-world.tar.gz
+      expected-sha256: dfd15f6cf344fe0db3b9a8b50266ea222f997cb8ffaa58e39f309d7c531088cc
+      extract: true
       directory: /etc/
